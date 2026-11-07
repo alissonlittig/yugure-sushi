@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Yūgure Sushi-ya — cardápio e reservas (projeto de demonstração)</title>
+<meta name="description" content="Yūgure Sushi-ya, restaurante japonês fictício: cardápio filtrável, galeria, horários e reservas online. Projeto de demonstração.">
+<meta name="theme-color" content="#0f0d0c">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%230f0d0c'/%3E%3Ccircle cx='16' cy='16' r='7' fill='%23d2432b'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<a class="skip" href="#cardapio">Ir para o cardápio</a>
+<div class="demo-bar">Projeto de demonstração: restaurante, cardápio e dados fictícios. Nenhuma reserva é enviada.</div>
+
+<header class="top">
+  <a class="brand" href="#inicio" aria-label="Yūgure Sushi-ya, início"><span class="sun" aria-hidden="true"></span>Yūgure</a>
+  <nav aria-label="Principal">
+    <a href="#cardapio">Cardápio</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#horarios">Horários</a>
+    <a class="cta" href="#reservas">Reservar</a>
+  </nav>
+</header>
+
+<main id="inicio">
+  <section class="hero">
+    <svg class="waves" aria-hidden="true" viewBox="0 0 400 200" preserveAspectRatio="xMidYMax slice"><rect width="400" height="200" fill="url(#seigaiha)"/></svg>
+    <div class="hero-in">
+      <p class="eyebrow">夕暮れ · Sushi-ya e izakaya · Curitiba</p>
+      <h1>O fim de tarde, <em>servido com calma.</em></h1>
+      <p class="lead">Dezesseis lugares no balcão, peixe escolhido de manhã e brasa acesa até tarde. Reserve sua mesa em menos de um minuto.</p>
+      <div class="hero-act">
+        <a class="btn" href="#reservas">Reservar mesa</a>
+        <a class="btn ghost" href="#cardapio">Ver cardápio</a>
+      </div>
+      <p class="status" id="status" role="status"></p>
+    </div>
+    <div class="disc" aria-hidden="true"></div>
+  </section>
+
+  <section id="cardapio" class="sec">
+    <header class="sec-h"><p class="eyebrow">お品書き</p><h2>Cardápio</h2></header>
+    <div class="tools">
+      <div class="chips" id="cats" role="group" aria-label="Categorias"></div>
+      <div class="row2">
+        <label class="search"><span class="sr">Buscar no cardápio</span><input id="q" type="search" placeholder="Buscar: atum, gengibre, yuzu…" autocomplete="off"></label>
+        <div class="chips small" id="tags" role="group" aria-label="Restrições"></div>
+      </div>
+    </div>
+    <p class="count" id="count" aria-live="polite"></p>
+    <ul class="menu" id="menu"></ul>
+    <p class="empty" id="empty" hidden>Nada por aqui com esses filtros. <button class="link" id="clear" type="button">Limpar filtros</button></p>
+    <p class="note">Preços fictícios. Informe alergias ao garçom.</p>
+  </section>
+
+  <section id="galeria" class="sec dark">
+    <header class="sec-h"><p class="eyebrow">写真</p><h2>A casa</h2></header>
+    <ul class="gallery">
+      <li class="g g1"><svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração: sol vermelho sobre montanhas"><rect width="300" height="300" fill="#1a1614"/><circle cx="150" cy="130" r="62" fill="#d2432b"/><path d="M0 230 L80 150 L130 205 L200 120 L300 230 V300 H0Z" fill="#0f0d0c"/><path d="M0 255 Q75 225 150 255 T300 255 V300 H0Z" fill="#2a2320"/></svg><span>Entardecer sobre o balcão</span></li>
+      <li class="g g2"><svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração: padrão de ondas seigaiha"><rect width="300" height="300" fill="#efe6d6"/><rect width="300" height="300" fill="url(#seigaiha-d)"/></svg><span>Seigaiha, as ondas</span></li>
+      <li class="g g3"><svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração: bambus"><rect width="300" height="300" fill="#23201c"/><g stroke="#b8975a" stroke-width="10" stroke-linecap="round"><path d="M70 0V300M150 0V300M230 0V300" opacity=".85"/></g><g stroke="#0f0d0c" stroke-width="3"><path d="M55 70h30M55 160h30M55 250h30M135 40h30M135 130h30M135 220h30M215 90h30M215 180h30M215 270h30"/></g></svg><span>Jardim de bambu</span></li>
+      <li class="g g4"><svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração: nigiri"><rect width="300" height="300" fill="#d2432b"/><rect x="60" y="165" width="180" height="62" rx="26" fill="#efe6d6"/><path d="M45 160 Q150 90 255 160 Q150 190 45 160Z" fill="#f08a6a"/><path d="M80 152 Q150 120 220 152" stroke="#efe6d6" stroke-width="3" fill="none" opacity=".7"/></svg><span>Nigiri de salmão</span></li>
+      <li class="g g5"><svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração: lanterna"><rect width="300" height="300" fill="#0f0d0c"/><rect x="120" y="40" width="60" height="14" fill="#b8975a"/><ellipse cx="150" cy="150" rx="62" ry="86" fill="#d2432b"/><g stroke="#8c2616" stroke-width="3" fill="none"><path d="M96 110Q150 135 204 110M90 150Q150 175 210 150M96 190Q150 215 204 190"/></g><rect x="120" y="236" width="60" height="14" fill="#b8975a"/><path d="M150 54V20" stroke="#b8975a" stroke-width="3"/></svg><span>Lanternas da entrada</span></li>
+      <li class="g g6"><svg viewBox="0 0 300 300" preserveAspectRatio="xMidYMid slice" role="img" aria-label="Ilustração: portal torii"><rect width="300" height="300" fill="#efe6d6"/><g fill="#d2432b"><path d="M30 80Q150 100 270 80L282 62Q150 84 18 62Z"/><rect x="60" y="100" width="180" height="14"/><rect x="82" y="100" width="18" height="170"/><rect x="200" y="100" width="18" height="170"/></g></svg><span>O portal, na rua</span></li>
+    </ul>
+  </section>
+
+  <section id="horarios" class="sec">
+    <header class="sec-h"><p class="eyebrow">営業時間</p><h2>Horários</h2></header>
+    <div class="two">
+      <table class="hours">
+        <caption class="sr">Horário de funcionamento</caption>
+        <tbody>
+          <tr data-d="2"><th scope="row">Terça a quinta</th><td>18h às 23h</td></tr>
+          <tr data-d="5"><th scope="row">Sexta</th><td>18h à meia-noite</td></tr>
+          <tr data-d="6"><th scope="row">Sábado</th><td>12h às 16h · 18h à meia-noite</td></tr>
+          <tr data-d="0"><th scope="row">Domingo</th><td>12h às 16h · 18h às 22h</td></tr>
+          <tr data-d="1"><th scope="row">Segunda</th><td>Fechado</td></tr>
+        </tbody>
+      </table>
+      <address>
+        <p><strong>Rua das Ondas, 123, Curitiba, PR</strong><br>Endereço fictício</p>
+        <p>Tel. (41) 0000-0000<br>Última mesa: 1h antes de fechar.</p>
+        <p>Grupos acima de 8 pessoas: fale com a casa.</p>
+      </address>
+    </div>
+  </section>
+
+  <section id="reservas" class="sec book">
+    <header class="sec-h"><p class="eyebrow">ご予約</p><h2>Reservas</h2></header>
+    <div class="two">
+      <form id="form" novalidate>
+        <div class="f"><label for="name">Nome e sobrenome</label><input id="name" name="name" autocomplete="name" required><small class="err" id="e-name"></small></div>
+        <div class="f"><label for="email">E-mail</label><input id="email" name="email" type="email" autocomplete="email" inputmode="email" required><small class="err" id="e-email"></small></div>
+        <div class="f"><label for="phone">Telefone com DDD</label><input id="phone" name="phone" type="tel" autocomplete="tel" inputmode="tel" placeholder="(41) 90000-0000" required><small class="err" id="e-phone"></small></div>
+        <div class="grid3">
+          <div class="f"><label for="date">Data</label><input id="date" name="date" type="date" required><small class="err" id="e-date"></small></div>
+          <div class="f"><label for="time">Horário</label><select id="time" name="time" required><option value="">Escolha a data</option></select><small class="err" id="e-time"></small></div>
+          <div class="f"><label for="guests">Pessoas</label><input id="guests" name="guests" type="number" min="1" max="8" value="2" inputmode="numeric" required><small class="err" id="e-guests"></small></div>
+        </div>
+        <div class="f"><label for="notes">Observações <span class="opt">(opcional)</span></label><textarea id="notes" name="notes" rows="3" maxlength="300" placeholder="Alergias, aniversário, preferência de balcão…"></textarea></div>
+        <button class="btn" type="submit">Confirmar reserva</button>
+        <p class="note">Demonstração: os dados ficam só neste navegador e nada é enviado.</p>
+      </form>
+      <aside class="how" id="how"><h3>Como funciona</h3><ol><li>Escolha data, horário e número de pessoas.</li><li>Receba o código da reserva na hora.</li><li>Chegue até 15 minutos depois do horário; depois disso a mesa volta para a fila.</li></ol></aside>
+      <aside id="done" class="done" hidden tabindex="-1" aria-live="polite"></aside>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <span class="brand"><span class="sun" aria-hidden="true"></span>Yūgure Sushi-ya</span>
+  <span>Projeto de demonstração por Alisson Littig. Restaurante, endereço e preços fictícios.</span>
+</footer>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <pattern id="seigaiha" width="40" height="20" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#b8975a" stroke-width="1">
+        <circle cx="20" cy="20" r="18"/><circle cx="20" cy="20" r="13"/><circle cx="20" cy="20" r="8"/>
+        <circle cx="0" cy="10" r="18"/><circle cx="0" cy="10" r="13"/><circle cx="0" cy="10" r="8"/>
+        <circle cx="40" cy="10" r="18"/><circle cx="40" cy="10" r="13"/><circle cx="40" cy="10" r="8"/>
+      </g>
+    </pattern>
+    <pattern id="seigaiha-d" width="40" height="20" patternUnits="userSpaceOnUse">
+      <g fill="none" stroke="#d2432b" stroke-width="1">
+        <circle cx="20" cy="20" r="18"/><circle cx="20" cy="20" r="13"/><circle cx="20" cy="20" r="8"/>
+        <circle cx="0" cy="10" r="18"/><circle cx="0" cy="10" r="13"/><circle cx="0" cy="10" r="8"/>
+        <circle cx="40" cy="10" r="18"/><circle cx="40" cy="10" r="13"/><circle cx="40" cy="10" r="8"/>
+      </g>
+    </pattern>
+  </defs>
+</svg>
+<script type="module" src="src/main.js"></script>
+</body>
+</html>
